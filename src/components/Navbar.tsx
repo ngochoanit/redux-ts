@@ -1,8 +1,12 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { useAppSelector } from '../store';
+import { selectTodoList } from '../store/Slides/TodoSlice';
+import Todos from './Todos';
 
 const Navbar = () => {
+  const Todos = useAppSelector(selectTodoList);
   return (
     <AppBar position="static">
       <Toolbar>
@@ -15,7 +19,7 @@ const Navbar = () => {
         >
           <Typography variant="h6">Home</Typography>
           <Typography variant="h6">About</Typography>
-          <Typography variant="h6">Total Todos:test</Typography>
+          <Typography variant="h6">Total Todos: {Todos?.length}</Typography>
         </Box>
       </Toolbar>
     </AppBar>
